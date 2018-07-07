@@ -16,7 +16,9 @@ To enable it during a `makepkg` run, see below.
 
 ## Usage
 
-Add one or more of the following to the `OPTIONS` array used by `makepkg`.
+Add one or more of the following to the `OPTIONS` array used by `makepkg`,
+before `emptydirs` to ensure `emptydirs` can do its job if `bleachbit` leaves
+anything empty.
 This can be done on a per-`PKGBUILD` basis, or in `/etc/makepkg.conf`.
 
 - `bleachbit`: removed unused locales.
@@ -26,5 +28,5 @@ I may extend this in future to enable more features.
 For example, my `OPTIONS` array in `/etc/makepkg.conf` is the following:
 
 ```
-OPTIONS=(strip docs !libtool !staticlibs emptydirs zipman purge ect bleachbit !debug)
+OPTIONS=(strip docs !libtool !staticlibs bleachbit emptydirs zipman purge ect !debug)
 ```
